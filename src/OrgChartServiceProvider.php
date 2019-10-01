@@ -46,7 +46,7 @@ class OrgChartServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('karbonsoft-orgchart', function () {
+        $this->app->bind('karbonsoftorgchart', function () {
             return new OrganizationChart();
         });
 

@@ -9,6 +9,6 @@ class OrgChart extends Facade {
      */
     protected static function getFacadeAccessor()
     {
-        return 'karbonsoft-orgchart';
+        return 'karbonsoftorgchart';
     }
 }
