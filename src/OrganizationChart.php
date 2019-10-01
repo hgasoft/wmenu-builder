@@ -7,7 +7,7 @@ use DB;
 use Karbonsoft\OrgChart\Models\Organization;
 use Karbonsoft\OrgChart\Models\OrganizationItem;
 
-class OrgChart
+class OrganizationChart
 {
 
     public function render()
