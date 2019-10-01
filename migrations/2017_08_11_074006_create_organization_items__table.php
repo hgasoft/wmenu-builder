@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMenuItemsWpTable extends Migration
+class CreateOrganizationItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateMenuItemsWpTable extends Migration
      */
     public function up()
     {
-        Schema::create( config('menu.table_prefix') . config('menu.table_name_items') , function (Blueprint $table) {
+        Schema::create( config('organization.table_prefix') . config('organization.table_name_organization_items') , function (Blueprint $table) {
             $table->increments('id');
             $table->string('label');
             $table->string('link');
             $table->integer('parent')->unsigned()->default(0);
             $table->integer('sort')->default(0);
             $table->string('class')->nullable();
-            $table->integer('menu')->unsigned();
+            $table->integer('organization')->unsigned();
             $table->integer('depth')->default(0);
             $table->timestamps();
 
-            $table->foreign('menu')->references('id')->on(config('menu.table_prefix') . config('menu.table_name_menus'))
+            $table->foreign('organization')->references('id')->on(config('organization.table_prefix') . config('organization.table_name_organizations'))
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });
@@ -37,6 +37,6 @@ class CreateMenuItemsWpTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists( config('menu.table_prefix') . config('menu.table_name_items'));
+        Schema::dropIfExists( config('organization.table_prefix') . config('organization.table_name_organization_items'));
     }
 }

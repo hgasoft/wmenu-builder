@@ -1,12 +1,12 @@
 <?php
 
-Route::group(['middleware' => config('menu.middleware')], function () {
-    //Route::get('wmenuindex', array('uses'=>'\Harimayco\Menu\Controllers\MenuController@wmenuindex'));
-    $path = rtrim(config('menu.route_path'));
-    Route::post($path . '/addcustommenu', array('as' => 'haddcustommenu', 'uses' => '\Harimayco\Menu\Controllers\MenuController@addcustommenu'));
-    Route::post($path . '/deleteitemmenu', array('as' => 'hdeleteitemmenu', 'uses' => '\Harimayco\Menu\Controllers\MenuController@deleteitemmenu'));
-    Route::post($path . '/deletemenug', array('as' => 'hdeletemenug', 'uses' => '\Harimayco\Menu\Controllers\MenuController@deletemenug'));
-    Route::post($path . '/createnewmenu', array('as' => 'hcreatenewmenu', 'uses' => '\Harimayco\Menu\Controllers\MenuController@createnewmenu'));
-    Route::post($path . '/generatemenucontrol', array('as' => 'hgeneratemenucontrol', 'uses' => '\Harimayco\Menu\Controllers\MenuController@generatemenucontrol'));
-    Route::post($path . '/updateitem', array('as' => 'hupdateitem', 'uses' => '\Harimayco\Menu\Controllers\MenuController@updateitem'));
+Route::group(['middleware' => config('organization.middleware')], function () {
+    //Route::get('orgchartindex', array('uses'=>'\Karbonsoft\OrgChart\Controllers\OrganizationController@orgchartindex'));
+    $path = rtrim(config('organization.route_path'));
+    Route::post($path . '/addcustomorganization', array('as' => 'haddcustomorganization', 'uses' => '\Karbonsoft\OrgChart\Controllers\OrganizationController@addcustomorganization'));
+    Route::post($path . '/deleteitemorganization', array('as' => 'hdeleteitemorganization', 'uses' => '\Karbonsoft\OrgChart\Controllers\OrganizationController@deleteitemorganization'));
+    Route::post($path . '/deleteorganizationg', array('as' => 'hdeleteorganizationg', 'uses' => '\Karbonsoft\OrgChart\Controllers\OrganizationController@deleteorganizationg'));
+    Route::post($path . '/createneworganization', array('as' => 'hcreateneworganization', 'uses' => '\Karbonsoft\OrgChart\Controllers\OrganizationController@createneworganization'));
+    Route::post($path . '/generateorganizationcontrol', array('as' => 'hgenerateorganizationcontrol', 'uses' => '\Karbonsoft\OrgChart\Controllers\OrganizationController@generateorganizationcontrol'));
+    Route::post($path . '/updateitem', array('as' => 'hupdateitem', 'uses' => '\Karbonsoft\OrgChart\Controllers\OrganizationController@updateitem'));
 });

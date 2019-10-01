@@ -1,15 +1,15 @@
 var arraydata = [];
-function getmenus() {
+function getorganizations() {
   arraydata = [];
-  $('#spinsavemenu').show();
+  $('#spinsaveorganization').show();
 
   var cont = 0;
-  $('#menu-to-edit li').each(function(index) {
+  $('#organization-to-edit li').each(function(index) {
     var dept = 0;
-    for (var i = 0; i < $('#menu-to-edit li').length; i++) {
+    for (var i = 0; i < $('#organization-to-edit li').length; i++) {
       var n = $(this)
         .attr('class')
-        .indexOf('menu-item-depth-' + i);
+        .indexOf('organization-item-depth-' + i);
       if (n != -1) {
         dept = i;
       }
@@ -35,21 +35,21 @@ function getmenus() {
     cont++;
   });
   updateitem();
-  actualizarmenu();
+  actualizarorganization();
 }
 
-function addcustommenu() {
+function addcustomorganization() {
   $('#spincustomu').show();
 
   $.ajax({
     data: {
-      labelmenu: $('#custom-menu-item-name').val(),
-      linkmenu: $('#custom-menu-item-url').val(),
-      rolemenu: $('#custom-menu-item-role').val(),
-      idmenu: $('#idmenu').val()
+      labelorganization: $('#custom-organization-item-name').val(),
+      linkorganization: $('#custom-organization-item-url').val(),
+      roleorganization: $('#custom-organization-item-role').val(),
+      idorganization: $('#idorganization').val()
     },
 
-    url: addcustommenur,
+    url: addcustomorganizationr,
     type: 'POST',
     success: function(response) {
       window.location.reload();
@@ -62,12 +62,12 @@ function addcustommenu() {
 
 function updateitem(id = 0) {
   if (id) {
-    var label = $('#idlabelmenu_' + id).val();
-    var clases = $('#clases_menu_' + id).val();
-    var url = $('#url_menu_' + id).val();
+    var label = $('#idlabelorganization_' + id).val();
+    var clases = $('#clases_organization_' + id).val();
+    var url = $('#url_organization_' + id).val();
     var role_id = 0;
-    if ($('#role_menu_' + id).length) {
-      role_id = $('#role_menu_' + id).val();
+    if ($('#role_organization_' + id).length) {
+      role_id = $('#role_organization_' + id).val();
     }
 
     var data = {
@@ -79,21 +79,21 @@ function updateitem(id = 0) {
     };
   } else {
     var arr_data = [];
-    $('.menu-item-settings').each(function(k, v) {
+    $('.organization-item-settings').each(function(k, v) {
       var id = $(this)
-        .find('.edit-menu-item-id')
+        .find('.edit-organization-item-id')
         .val();
       var label = $(this)
-        .find('.edit-menu-item-title')
+        .find('.edit-organization-item-title')
         .val();
       var clases = $(this)
-        .find('.edit-menu-item-classes')
+        .find('.edit-organization-item-classes')
         .val();
       var url = $(this)
-        .find('.edit-menu-item-url')
+        .find('.edit-organization-item-url')
         .val();
       var role = $(this)
-        .find('.edit-menu-item-role')
+        .find('.edit-organization-item-role')
         .val();
       arr_data.push({
         id: id,
@@ -124,16 +124,16 @@ function updateitem(id = 0) {
   });
 }
 
-function actualizarmenu() {
+function actualizarorganization() {
   $.ajax({
     dataType: 'json',
     data: {
       arraydata: arraydata,
-      menuname: $('#menu-name').val(),
-      idmenu: $('#idmenu').val()
+      organizationname: $('#organization-name').val(),
+      idorganization: $('#idorganization').val()
     },
 
-    url: generatemenucontrolr,
+    url: generateorganizationcontrolr,
     type: 'POST',
     beforeSend: function(xhr) {
       $('#spincustomu2').show();
@@ -154,23 +154,23 @@ function deleteitem(id) {
       id: id
     },
 
-    url: deleteitemmenur,
+    url: deleteitemorganizationr,
     type: 'POST',
     success: function(response) {}
   });
 }
 
-function deletemenu() {
-  var r = confirm('Do you want to delete this menu ?');
+function deleteorganization() {
+  var r = confirm('Do you want to delete this organization ?');
   if (r == true) {
     $.ajax({
       dataType: 'json',
 
       data: {
-        id: $('#idmenu').val()
+        id: $('#idorganization').val()
       },
 
-      url: deletemenugr,
+      url: deleteorganizationgr,
       type: 'POST',
       beforeSend: function(xhr) {
         $('#spincustomu2').show();
@@ -178,7 +178,7 @@ function deletemenu() {
       success: function(response) {
         if (!response.error) {
           alert(response.resp);
-          window.location = menuwr;
+          window.location = organizationwr;
         } else {
           alert(response.resp);
         }
@@ -192,24 +192,24 @@ function deletemenu() {
   }
 }
 
-function createnewmenu() {
-  if (!!$('#menu-name').val()) {
+function createneworganization() {
+  if (!!$('#organization-name').val()) {
     $.ajax({
       dataType: 'json',
 
       data: {
-        menuname: $('#menu-name').val()
+        organizationname: $('#organization-name').val()
       },
 
-      url: createnewmenur,
+      url: createneworganizationr,
       type: 'POST',
       success: function(response) {
-        window.location = menuwr + '?menu=' + response.resp;
+        window.location = organizationwr + '?organization=' + response.resp;
       }
     });
   } else {
-    alert('Enter menu name!');
-    $('#menu-name').focus();
+    alert('Enter organization name!');
+    $('#organization-name').focus();
     return false;
   }
 }
@@ -240,6 +240,6 @@ function insertParam(key, value) {
   document.location.search = kvp.join('&');
 }
 
-wpNavMenu.registerChange = function() {
-  getmenus();
+wpNavOrganization.registerChange = function() {
+  getorganizations();
 };

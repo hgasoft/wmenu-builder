@@ -9,12 +9,12 @@ return [
     'table_prefix' => 'admin_',
 
 /* you can set your own table names */
-    'table_name_menus' => 'menus',
+    'table_name_organization' => 'organizations',
 
-    'table_name_items' => 'menu_items',
+    'table_name_organization_items' => 'organization_items',
 
 /* you can set your route path*/
-    'route_path' => '/harimayco/',
+    'route_path' => '/karbonsoft/',
 
 /* here you can make menu items visible to specific roles */
     'use_roles' => false,
