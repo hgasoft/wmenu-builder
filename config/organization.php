@@ -9,7 +9,7 @@ return [
     'table_prefix' => 'admin_',
 
 /* you can set your own table names */
-    'table_name_organization' => 'organizations',
+    'table_name_organizations' => 'organizations',
 
     'table_name_organization_items' => 'organization_items',
 
