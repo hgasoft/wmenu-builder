@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Karbonsoft\OrgChart\Models\Organization;
 use Karbonsoft\OrgChart\Models\OrganizationItem;
+use Karbonsoft\OrgChart\Facades\OrgChart;
 
 class OrganizationController extends Controller
 {
