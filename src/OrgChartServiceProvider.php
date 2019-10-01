@@ -35,7 +35,7 @@ class OrgChartServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../migrations/2017_08_11_073824_create_organizations_table.php' => database_path('migrations/2017_08_11_073824_create_organizations_table.php'),
             __DIR__ . '/../migrations/2017_08_11_074006_create_organization_items__table.php' => database_path('migrations/2017_08_11_074006_create_organization_items__table.php'),
-            __DIR__ . '/../migrations/2019_01_05_293551_add-role-id-to-organization-items-table.php' => database_path('2019_01_05_293551_add-role-id-to-organization-items-table.php'),
+            __DIR__ . '/../migrations/2019_01_05_293551_add-role-id-to-organization-items-table.php' => database_path('migrations/2019_01_05_293551_add-role-id-to-organization-items-table.php'),
         ], 'migrations');
     }
 
