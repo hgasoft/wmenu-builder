@@ -14,7 +14,7 @@ return [
     'table_name_organization_items' => 'organization_items',
 
 /* you can set your route path*/
-    'route_path' => '/karbonsoft/',
+    'route_path' => '/karbonsoft',
 
 /* here you can make menu items visible to specific roles */
     'use_roles' => false,
