@@ -17,7 +17,7 @@ $currentUrl = url()->current();
 								<form method="get" action="{{ $currentUrl }}">
 									<label for="organization" class="selected-organization">Select the organization you want to edit:</label>
 
-									{!! \Karbonsoft\OrgChart\Models\Organization::select('organization', $organizationlist) !!}
+									{!! OrgChart::select('organization', $organizationlist) !!}
 
 									<span class="submit-btn">
 										<input type="submit" class="button-secondary" value="Choose">
