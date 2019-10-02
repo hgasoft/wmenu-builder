@@ -136,8 +136,8 @@ $currentUrl = url()->current();
 															<li id="organization-item-{{$org->id}}" class="organization-item organization-item-depth-{{$org->depth}} organization-item-page organization-item-edit-inactive pending" style="display: list-item;">
 																<dl class="organization-item-bar">
 																	<dt class="organization-item-handle">
-																		<span class="item-title"> <span class="organization-item-title"> <span id="organizationtitletemp_{{$org->id}}">{{$org->label}}</span> <span style="color: transparent;">|{{$org->id}}|</span> </span> <span class="is-suborganization" style="@if($m->depth==0)display: none;@endif">Subelement</span> </span>
-																		<span class="item-controls"> <span class="item-type">Link</span> <span class="item-order hide-if-js"> <a href="{{ $currentUrl }}?action=move-up-organization-item&organization-item={{$org->id}}" class="item-move-up"><abbr title="Move Up">↑</abbr></a> | <a href="{{ $currentUrl }}?action=move-down-organization-item&organization-item={{$org->id}}" class="item-move-down"><abbr title="Move Down">↓</abbr></a> </span> <a class="item-edit" id="edit-{{$org->id}}" title=" " href="{{ $currentUrl }}?edit-organization-item={{$m->id}}#organization-item-settings-{{$org->id}}"> </a> </span>
+																		<span class="item-title"> <span class="organization-item-title"> <span id="organizationtitletemp_{{$org->id}}">{{$org->label}}</span> <span style="color: transparent;">|{{$org->id}}|</span> </span> <span class="is-suborganization" style="@if($org->depth==0)display: none;@endif">Subelement</span> </span>
+																		<span class="item-controls"> <span class="item-type">Link</span> <span class="item-order hide-if-js"> <a href="{{ $currentUrl }}?action=move-up-organization-item&organization-item={{$org->id}}" class="item-move-up"><abbr title="Move Up">↑</abbr></a> | <a href="{{ $currentUrl }}?action=move-down-organization-item&organization-item={{$org->id}}" class="item-move-down"><abbr title="Move Down">↓</abbr></a> </span> <a class="item-edit" id="edit-{{$org->id}}" title=" " href="{{ $currentUrl }}?edit-organization-item={{$org->id}}#organization-item-settings-{{$org->id}}"> </a> </span>
 																	</dt>
 																</dl>
 
@@ -186,7 +186,7 @@ $currentUrl = url()->current();
 
 																		<a class="item-delete submitdelete deletion" id="delete-{{$org->id}}" href="{{ $currentUrl }}?action=delete-organization-item&organization-item={{$org->id}}">Delete</a>
 																		<span class="meta-sep hide-if-no-js"> | </span>
-																		<a class="item-cancel submitcancel hide-if-no-js button-secondary" id="cancel-{{$org->id}}" href="{{ $currentUrl }}?edit-organization-item={{$m->id}}&cancel=1424297719#organization-item-settings-{{$org->id}}">Cancel</a>
+																		<a class="item-cancel submitcancel hide-if-no-js button-secondary" id="cancel-{{$org->id}}" href="{{ $currentUrl }}?edit-organization-item={{$org->id}}&cancel=1424297719#organization-item-settings-{{$org->id}}">Cancel</a>
 																		<span class="meta-sep hide-if-no-js"> | </span>
 																		<a onclick="getorganizations()" class="button button-primary updateorganization" id="update-{{$org->id}}" href="javascript:void(0)">Update item</a>
 
