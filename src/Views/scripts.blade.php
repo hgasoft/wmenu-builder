@@ -19,7 +19,7 @@
 	var deleteorganizationgr= '{{ route("hdeleteorganizationg") }}';
 	var createneworganizationr= '{{ route("hcreateneworganization") }}';
 	var csrftoken="{{ csrf_token() }}";
-	var organizationuwr = "{{ url()->current() }}";
+	var organizationwr = "{{ url()->current() }}";
 
 	$.ajaxSetup({
 		headers: {
