@@ -1,7 +1,7 @@
 <?php
 
 Route::group(['middleware' => config('organization.middleware')], function () {
-    //Route::get('orgchartindex', array('uses'=>'\Karbonsoft\OrgChart\Controllers\OrganizationController@orgchartindex'));
+    //Route::get('orgchartindex', array('uses'=>'\Karbonsoft\OrgChart\Controllers\OrganizationController@orgchartindex')); HAKYUREK
     $path = rtrim(config('organization.route_path'));
     Route::post($path . '/addcustomorganization', array('as' => 'haddcustomorganization', 'uses' => '\Karbonsoft\OrgChart\Controllers\OrganizationController@addcustomorganization'));
     Route::post($path . '/deleteitemorganization', array('as' => 'hdeleteitemorganization', 'uses' => '\Karbonsoft\OrgChart\Controllers\OrganizationController@deleteitemorganization'));
