@@ -15,13 +15,17 @@ class CreateOrganizationItemsTable extends Migration
     {
         Schema::create( config('organization.table_prefix') . config('organization.table_name_organization_items') , function (Blueprint $table) {
             $table->increments('id');
-            $table->string('label');
-            $table->string('link');
+            $table->string('title');
+            $table->string('details');
             $table->integer('parent')->unsigned()->default(0);
             $table->integer('sort')->default(0);
             $table->string('class')->nullable();
             $table->integer('organization')->unsigned();
             $table->integer('depth')->default(0);
+            $table->string('type')->default('person');
+            $table->string('photo');
+            $table->string('persondetails');
+            $table->string('organizationdetails');
             $table->timestamps();
 
             $table->foreign('organization')->references('id')->on(config('organization.table_prefix') . config('organization.table_name_organizations'))

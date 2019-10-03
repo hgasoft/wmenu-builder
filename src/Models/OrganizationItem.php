@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrganizationItem extends Model
 {
+    const PERSON = 'person';
+    const ORGANIZATION = 'organization';
+
 
     protected $table = null;
 
-    protected $fillable = ['label', 'link', 'parent', 'sort', 'class', 'organization', 'depth', 'role_id'];
+    protected $fillable = ['label', 'link', 'parent', 'sort', 'class', 'organization', 'depth', 'type', 'photo', 'persondetails', 'organizationdetails'];
 
     public function __construct(array $attributes = [])
     {
@@ -17,17 +20,23 @@ class OrganizationItem extends Model
         $this->table = config('organization.table_prefix') . config('organization.table_name_organization_items');
     }
 
+    public static function getNextSortRoot($organization)
+    {
+        return self::where('organization', $organization)->max('sort') + 1;
+    }
+
     public function getsons($id)
     {
         return $this->where("parent", $id)->get();
     }
+
     public function getall($id)
     {
         return $this->where("organization", $id)->orderBy("sort", "asc")->get();
     }
 
-    public static function getNextSortRoot($organization)
+    public function organization()
     {
-        return self::where('organization', $organization)->max('sort') + 1;
+        return $this->belongsTo("Organization" ,"organization","id");
     }
 }
